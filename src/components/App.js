@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import { useSelector } from "react-redux";
 import Home from "./Home";
 import SignIn from "./SignIn";
+import Logout from "./Logout";
 import NotFound from "./NotFound";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
             <Home />
           </PrivateRoute>
           <Route path="/sign_in" component={SignIn} />
+          <Route path="/logout" component={Logout} />
           <Route component={NotFound} />
         </Switch>
       </div>

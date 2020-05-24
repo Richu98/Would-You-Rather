@@ -23,7 +23,7 @@ const SignIn = () => {
   const usersLoading = useSelector((state) => state.usersLoading);
 
   if (usersLoading) {
-    return <div>Loading...</div>;
+    return <h2>Loading...</h2>;
   }
 
   return <UserSelect onSelect={signIn} />;
