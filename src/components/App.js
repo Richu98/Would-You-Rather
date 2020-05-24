@@ -1,10 +1,40 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Home from "./Home";
+import SignIn from "./SignIn";
+import NotFound from "./NotFound";
 
 const App = () => {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <div className="app">
+        <Switch>
+          <PrivateRoute exact path="/">
+            <Home />
+          </PrivateRoute>
+          <Route path="/sign_in" component={SignIn} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
+
+const PrivateRoute = ({ children, ...rest }) => {
+  const currentUser = useSelector((state) => state.currentUser);
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        currentUser ? (
+          children
+        ) : (
+          <Redirect to={{ pathname: "/sign_in", state: { from: location } }} />
+        )
+      }
+    />
+  );
+};
 
 export default App;
