@@ -60,11 +60,17 @@ const Option = ({ option, totalVotes, selectedByUser }) => {
   );
 };
 
-const Tooltip = styled.div`
+const Tooltip = styled.span`
   cursor: pointer;
   padding-right: 0.5rem;
 `;
 
-const Checkbox = () => <Tooltip title="Selected by you">✅</Tooltip>;
+const Checkbox = () => (
+  <Tooltip>
+    <span role="img" title="Selected by you" aria-label="Selected by you">
+      ✅
+    </span>
+  </Tooltip>
+);
 
 export default StatisticsView;

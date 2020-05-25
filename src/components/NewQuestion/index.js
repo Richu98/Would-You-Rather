@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { handleAddQuestion } from "../../actions/questions";
 
@@ -13,7 +13,6 @@ const NewQuestion = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser);
 
-  const location = useLocation();
   const history = useHistory();
 
   const onChange = (e) => {

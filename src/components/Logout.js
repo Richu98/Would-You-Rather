@@ -11,9 +11,9 @@ const Logout = () => {
   useEffect(() => {
     dispatch(unsetCurrentUser());
     history.replace("/sign_in");
-  }, []);
+  }, [dispatch, history]);
 
   return null;
 };
 
-export default Logout
+export default Logout;
