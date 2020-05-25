@@ -8,7 +8,7 @@ import { SuccessNotice, ErrorNotice } from "../common";
 
 const Container = styled.div`
   text-align: center;
-`
+`;
 
 const FilterContainer = styled.div`
   display: flex;
@@ -54,10 +54,10 @@ const QuestionList = () => {
     [questions, votedByUser]
   );
 
-  const displayableQuestions =
-    questionFilter === "unanswered"
-      ? fetchUnansweredQuestions()
-      : fetchAnsweredQuestions();
+  const displayableQuestions = (questionFilter === "unanswered"
+    ? fetchUnansweredQuestions()
+    : fetchAnsweredQuestions()
+  ).sort((a, b) => a.timestamp - b.timestamp);
 
   return (
     <Container>
