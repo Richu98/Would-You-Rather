@@ -57,7 +57,7 @@ const QuestionList = () => {
   const displayableQuestions = (questionFilter === "unanswered"
     ? fetchUnansweredQuestions()
     : fetchAnsweredQuestions()
-  ).sort((a, b) => a.timestamp - b.timestamp);
+  ).sort((a, b) => b.timestamp - a.timestamp);
 
   return (
     <Container>

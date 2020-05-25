@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTION_DATA } from "../actions/questions";
+import { RECEIVE_QUESTION_DATA, ADD_QUESTION } from "../actions/questions";
 import { VOTE } from "../actions/common";
 
 const questions = (state = {}, action) => {
@@ -25,6 +25,8 @@ const questions = (state = {}, action) => {
             : [key, question]
         )
       );
+    case ADD_QUESTION:
+      return { ...state, [action.question.id]: action.question }
     default:
       return state;
   }

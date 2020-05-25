@@ -39,7 +39,7 @@ const Header = () => {
         <NavItem exact to="/" activeClassName={activeClassName}>
           Home
         </NavItem>
-        <NavItem exact to="/questions/new" activeClassName={activeClassName}>
+        <NavItem exact to="/add" activeClassName={activeClassName}>
           New Question
         </NavItem>
         <NavItem exact to="/leaderboard" activeClassName={activeClassName}>
