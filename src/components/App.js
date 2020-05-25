@@ -22,6 +22,8 @@ const Container = styled.div`
   margin-top: 1rem;
 `;
 
+const LOGIN_NOTICE = "You need to be logged in to access this page";
+
 const App = () => {
   return (
     <Router>
@@ -61,7 +63,10 @@ const PrivateRoute = ({ children, render, ...rest }) => {
           children || render(props)
         ) : (
           <Redirect
-            to={{ pathname: "/sign_in", state: { from: props.location } }}
+            to={{
+              pathname: "/sign_in",
+              state: { from: props.location, notice: LOGIN_NOTICE },
+            }}
           />
         )
       }

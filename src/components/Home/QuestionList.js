@@ -1,6 +1,14 @@
 import React, { useCallback, useState } from "react";
-import styled from "styled-components";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import styled from "styled-components";
+
+import QuestionBox from "./QuestionBox";
+import { SuccessNotice, ErrorNotice } from "../common";
+
+const Container = styled.div`
+  text-align: center;
+`
 
 const FilterContainer = styled.div`
   display: flex;
@@ -8,15 +16,26 @@ const FilterContainer = styled.div`
 `;
 
 const FilterItem = styled.a`
+  padding: 0.5rem;
+
   &.active {
     color: red;
   }
+`;
+
+const ListContainer = styled.div`
+  display: inline-block;
 `;
 
 const QuestionList = () => {
   const currentUser = useSelector((state) => state.currentUser);
   const questions = useSelector((state) => state.questions);
   const [questionFilter, setQuestionFilter] = useState("unanswered");
+
+  const location = useLocation();
+
+  const successNotice = location.state?.successNotice;
+  const errorNotice = location.state?.errorNotice;
 
   const votedByUser = useCallback(
     (question) =>
@@ -41,7 +60,9 @@ const QuestionList = () => {
       : fetchAnsweredQuestions();
 
   return (
-    <div>
+    <Container>
+      {successNotice && <SuccessNotice>{successNotice}</SuccessNotice>}
+      {errorNotice && <ErrorNotice>{errorNotice}</ErrorNotice>}
       <FilterContainer>
         <FilterItem
           href="#"
@@ -59,12 +80,12 @@ const QuestionList = () => {
         </FilterItem>
       </FilterContainer>
 
-      {displayableQuestions.map((question) => (
-        <div key={question.id}>
-          Would you rather ...{question.optionOne.text}...
-        </div>
-      ))}
-    </div>
+      <ListContainer>
+        {displayableQuestions.map((question) => (
+          <QuestionBox key={question.id} question={question} />
+        ))}
+      </ListContainer>
+    </Container>
   );
 };
 

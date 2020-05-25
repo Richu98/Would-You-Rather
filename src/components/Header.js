@@ -17,7 +17,8 @@ const NavItem = styled(NavLink).attrs({ activeClassName })`
   padding-right: 1rem;
 
   &.${activeClassName} {
-    background-color: paleturquoise;
+    color: black;
+    cursor: default;
   }
 `;
 

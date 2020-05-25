@@ -5,7 +5,6 @@ import { handleInitialQuestionData } from "../../actions/questions";
 import QuestionList from "./QuestionList";
 
 const Home = () => {
-  // const currentUser = useSelector((state) => state.currentUser);
   const questionsLoading = useSelector((state) => state.questionsLoading);
   const dispatch = useDispatch();
 
