@@ -14,7 +14,7 @@ const UserList = styled.div`
   justify-content: space-evenly;
 `;
 
-const UserSelect = ({ onSelect }) => {
+const UserSelect = () => {
   const users = useSelector((state) => state.users);
 
   return (
@@ -22,7 +22,7 @@ const UserSelect = ({ onSelect }) => {
       <h1>Select user</h1>
       <UserList>
         {Object.keys(users).map((user) => (
-          <UserBox key={users[user].id} user={users[user]} onSelect={onSelect} />
+          <UserBox key={users[user].id} user={users[user]} />
         ))}
       </UserList>
     </Container>
