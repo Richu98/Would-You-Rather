@@ -17,3 +17,8 @@ export const SuccessNotice = styled(NoticeBox)`
 export const ErrorNotice = styled(NoticeBox)`
   background-color: #f44336;
 `;
+
+export const AvatarImage = styled.img`
+  width: 100px;
+  border-radius: 50%;
+`;

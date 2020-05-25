@@ -28,7 +28,7 @@ const Container = styled.div`
 `;
 
 const QuestionBox = ({ question }) => {
-  const user = useSelector(state => state.users[question.author])
+  const user = useSelector((state) => state.users[question.author]);
 
   return (
     <NavBox exact to={`/questions/${question.id}`}>

@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+import { AvatarImage } from "../common";
+
 const Box = styled.div`
   cursor: pointer;
-`;
-
-const AvatarImage = styled.img`
-  width: 100px;
-  border-radius: 50%;
 `;
 
 const UserBox = ({ user, onSelect }) => (
