@@ -1,4 +1,4 @@
-import { _getQuestions as getQuestions } from '../_DATA'
+import { _getQuestions as getQuestions } from "../_DATA";
 
 export const RECEIVE_QUESTION_DATA = "RECEIVE_QUESTION_DATA";
 

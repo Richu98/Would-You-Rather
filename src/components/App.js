@@ -44,8 +44,12 @@ const App = () => {
               <Leaderboard />
             </PrivateRoute>
             <Route exact path="/sign_in" component={SignIn} />
-            <Route exact path="/logout" component={Logout} />
-            <Route component={NotFound} />
+            <PrivateRoute exact path="/logout">
+              <Logout />
+            </PrivateRoute>
+            <PrivateRoute>
+              <NotFound />
+            </PrivateRoute>
           </Switch>
         </Container>
       </div>

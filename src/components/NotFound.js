@@ -1,7 +1,8 @@
 import React from "react";
+import { ErrorNotice } from "./common";
 
 const NotFound = () => {
-  return <div>Page not found</div>;
+  return <ErrorNotice>Page not found</ErrorNotice>;
 };
 
 export default NotFound;
